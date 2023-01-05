@@ -25,3 +25,8 @@ for i in range(len(avengerList)):
 print(avengerList, type (avengerList))
 print(avengerScore, type (avengerScore))
 print(avengerDB, type (avengerDB))
+
+#tuple
+avengerTuple = ("Iron Man", "Captain America", "Thor")
+print(avengerTuple[0])
+print(avengerTuple[1])
