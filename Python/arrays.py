@@ -30,3 +30,26 @@ print(avengerDB, type (avengerDB))
 avengerTuple = ("Iron Man", "Captain America", "Thor")
 print(avengerTuple[0])
 print(avengerTuple[1])
+
+#2d-array
+array2D = []
+for i in range(len(avengerList)):
+    aTuple = (avengerList[i], avengerScore[i])
+    print("Row ", i+1, aTuple)
+    array2D.append(aTuple)
+
+for i in range(len(avengerList)):
+    print(avengerList[i], "\n", avengerScore[i])
+
+print(array2D)
+
+#2-d array accessing
+avengerRatings = [
+    ["SpiderMan", 8],
+    ["Groot", 7],
+    ["BlackWidow", 8]
+]
+
+for element in avengerRatings:
+    for innerElement in element:
+        print(innerElement)
