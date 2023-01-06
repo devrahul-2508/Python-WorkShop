@@ -3,9 +3,6 @@ def multiply(number1, number2):
     mul = number1 * number2
     print("Multiplication Result Inside function body", mul)
     return mul
-    
-result = multiply(10, 20) #coment when called from main
-print("Multiplication Result Outside function body", result) #coment when called from main
 
 employee = [{
     "name": "Tony Stark",
@@ -35,6 +32,9 @@ def fetchEmployeeAddress(employeeList, addressKey):
         for address in emp["address"]:
             emp_pin_list[employeeList.index(emp)][addressKey].append(address[addressKey])
     return emp_pin_list
+
+result = multiply(10, 20) #coment when called from main
+print("Multiplication Result Outside function body", result) #coment when called from main
 
 result = fetchEmployeeAddress(employee, "pincode") #coment when called from main
 print(result) #coment when called from main
