@@ -23,3 +23,21 @@ plt.ylabel("Y Label")
 plt.title("Sin and Cosine")
 plt.legend(['Sin', 'Cosine'])
 plt.show()
+
+x_parabola = np.linspace(-20,20,100)
+y_parabola = x_parabola**2
+y_curve = 5*(x_parabola**2) + 6*x_parabola + 3
+y_curve2 = 1 - ((x_parabola**2)/2)
+
+plt.subplot(3,1,1)
+plt.plot(x_parabola, y_parabola)
+plt.title("Parabola")
+
+plt.subplot(3,1,2)
+plt.plot(x_parabola, y_curve)
+plt.title("curve1")
+
+plt.subplot(3,1,3)
+plt.plot(x_parabola, y_curve2)
+plt.title("curve2")
+plt.show()
