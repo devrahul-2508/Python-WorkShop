@@ -140,17 +140,3 @@ reshape = np.reshape(r, [3,2])
 print("_______Reshape__________")
 print(r.shape)
 print(reshape.shape)
-
-#ploting sin wave
-x_plot = np.arange(0, 3*np.pi, 0.1)
-y_plot = np.sin(x_plot)
-y_plot_cos = np.cos(x_plot)
-
-plt.plot(x_plot, y_plot)
-plt.plot(x_plot, y_plot_cos)
-
-plt.xlabel("X Aixis")
-plt.ylabel("Y Label")
-plt.title("Sin and Cosine")
-plt.legend(['Sin', 'Cosine'])
-plt.show()
