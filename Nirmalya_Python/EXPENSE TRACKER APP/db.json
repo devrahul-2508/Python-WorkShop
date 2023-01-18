@@ -1,0 +1,57 @@
+{
+    "accessKey": "feb7beb6-9632-11ed-8768-ecf4bb865ff2",
+    "secretKey": "0e325834-6e00-494d-87d5-ffc7a499670d",
+    "item_type": [
+        "Food",
+        "Beverages",
+        "Clothing",
+        "Stationaries",
+        "Waerables",
+        "Electronics",
+        "Accessories"
+    ],
+    "users": [
+        {
+            "user": "Nirmalya Saha",
+            "username": "nirmalyasaha",
+            "email": "nirmalyasaha404@gmail.com",
+            "password": "nirmalya123456",
+            "purchase": {}
+        },
+        {
+            "user": "Nirmalya Saha",
+            "username": "nirmalyasaha",
+            "email": "nirmalyasaha4054@gmail.com",
+            "password": "nirmalya123456",
+            "purchase": {
+                "2023-01-18": [
+                    {
+                        "item_type": "Food",
+                        "item_name": "Pizza",
+                        "item_price": "100",
+                        "purchase_time": "2023-01-18 12:15:37.129225+05:30"
+                    },
+                    {
+                        "item_type": "Food",
+                        "item_name": "Pizza",
+                        "item_price": "100",
+                        "purchase_time": "2023-01-18 12:15:48.752533+05:30"
+                    },
+                    {
+                        "item_type": "Food",
+                        "item_name": "Pizza",
+                        "item_price": "100",
+                        "purchase_time": "2023-01-18 12:23:43.171506+05:30"
+                    }
+                ]
+            }
+        },
+        {
+            "user": "Nirmalya Saha changed",
+            "username": "nirmalyasaha",
+            "email": "nirmalyasaha40564@gmail.com",
+            "password": "nirmalya123456",
+            "purchase": {}
+        }
+    ]
+}
