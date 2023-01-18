@@ -1,6 +1,6 @@
 {
-    "accessKey": "8b18a67c-9632-11ed-8a19-e30e6836f1d1",
-    "secretKey": "7f9ea9cc-d7c2-49ee-8a3d-cd68bb0d2aed",
+    "accessKey": "0d1ace8d-9759-11ed-9d36-dd322cdcb88f",
+    "secretKey": "232bed58-13cf-4bc1-804f-94f4dc0582c6",
     "item_types": [
         "Food",
         "Beverages",
@@ -11,11 +11,36 @@
     ],
     "users": [
         {
-            "name": "Rahul Roy",
-            "email": "rahulroy@gmail.com",
+            "name": "Rahul",
+            "email": "rahulroy.rr2508@gmail.com",
             "password": "123456",
-            "username": "rahul_dev",
-            "purchases": {}
+            "username": "rAhul",
+            "purchases": {
+                "2023-01-18": [
+                    {
+                        "item_type": "Food",
+                        "item_name": "Burger",
+                        "item_price": "99",
+                        "purchase_time": "2023-01-18 23:56:34.076059+05:30"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Sandy",
+            "email": "sandycandy@gmail.com",
+            "password": "123456",
+            "username": "sancan",
+            "purchases": {
+                "2023-01-18": [
+                    {
+                        "item_type": "Beverages",
+                        "item_name": "Budweiser",
+                        "item_price": "1500",
+                        "purchase_time": "2023-01-18 23:57:44.016777+05:30"
+                    }
+                ]
+            }
         }
     ]
 }
