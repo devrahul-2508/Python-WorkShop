@@ -1,0 +1,21 @@
+{
+    "accessKey": "8b18a67c-9632-11ed-8a19-e30e6836f1d1",
+    "secretKey": "7f9ea9cc-d7c2-49ee-8a3d-cd68bb0d2aed",
+    "item_types": [
+        "Food",
+        "Beverages",
+        "Clothing",
+        "Stationaries",
+        "Wearables",
+        "Electronics Accessories"
+    ],
+    "users": [
+        {
+            "name": "Rahul Roy",
+            "email": "rahulroy@gmail.com",
+            "password": "123456",
+            "username": "rahul_dev",
+            "purchases": {}
+        }
+    ]
+}
