@@ -39,6 +39,20 @@
                         "item_price": "1500",
                         "purchase_time": "2023-01-18 23:57:44.016777+05:30"
                     }
+                ],
+                "2023-01-19": [
+                    {
+                        "item_type": "Beverages",
+                        "item_name": "Black Dog",
+                        "item_price": "1500",
+                        "purchase_time": "2023-01-19 10:17:03.595121+05:30"
+                    },
+                    {
+                        "item_type": "Food",
+                        "item_name": "Biriyani",
+                        "item_price": "200",
+                        "purchase_time": "2023-01-19 10:18:54.745331+05:30"
+                    }
                 ]
             }
         }

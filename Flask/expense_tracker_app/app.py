@@ -1,7 +1,8 @@
-from flask import Flask, request
+from flask import Flask, request,jsonify
 from uuid import uuid1,uuid4
 import os,json,pytz
 from datetime import date,datetime
+import pandas as pd
 
 db={}
 db_filename = "db.json"
@@ -178,9 +179,57 @@ def addPurchase():
             "error_message": "Error: Trying to access endpoint with wrong method"
         }      
 
+@app.route("/get_all_purchases_for_today",methods=["GET"])
+def get_all_purchases_for_today():
+    user_idx = int(request.args["user_idx"])
+    print(user_idx)
+    curr_date = str(date.today())
+    
+    
+    purchasedates = list(db["users"][user_idx]["purchases"].keys())
+    if(curr_date in purchasedates):
+        list_of_purchases = db["users"][user_idx]["purchases"][curr_date]
+        return jsonify(purchases_for_today = list_of_purchases)
+    else:
+        return jsonify(message="Not found")    
 
+@app.route("/get_purchases_for_time_duration",methods=["GET"])
+def get_purchases_for_time_duration():
+    # user_idx = int(request.args["user_idx"])
+    # start_date = request.args["start_date"]
+    # end_date = request.args["end_date"]
+    data = request.json
+    user_idx = data["user_idx"]
+    start_date = data["start_date"]
+    end_date = data["end_date"]
 
+    dates =  list(db["users"][user_idx]["purchases"].keys())
 
+    list_of_purchases = {}
+
+    flag = False
+
+    date_range = pd.date_range(start_date,end_date)
+    for element in dates:
+        if element in date_range:
+            flag = True
+            list_of_purchases[element] = (db["users"][user_idx]["purchases"][element])
+    
+    if(flag):
+         return {
+        "success":True,
+        "status":200,
+        "purchases_for_range" :list_of_purchases
+        }
+    else:
+         return {
+        "success":True,
+        "status":200,
+        "purchases_for_range" : "No purchases found"
+        }    
+    
+    
+   
 
 
 if __name__ == "__main__":
