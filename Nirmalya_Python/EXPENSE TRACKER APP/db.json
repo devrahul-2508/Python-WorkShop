@@ -43,6 +43,14 @@
                         "item_price": "100",
                         "purchase_time": "2023-01-18 12:23:43.171506+05:30"
                     }
+                ],
+                "2023-01-19": [
+                    {
+                        "item_type": "Food",
+                        "item_name": "Pizza",
+                        "item_price": "100",
+                        "purchase_time": "2023-01-19 10:19:33.452664+05:30"
+                    }
                 ]
             }
         },
