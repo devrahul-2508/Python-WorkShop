@@ -1,15 +1,15 @@
 from flask import Flask,jsonify,request
 from flask_cors import CORS
 from os import environ
-from config import db,SECRET_KEY
-from dotenv import load_dotenv
+import os
+from config import db,SECRET_KEY,load_dotenv
 from models.user import User
 from models.personalDetails import PersonalDetails
 from models.projects import Projects
 
 def create_app():
     app = Flask(__name__)
-    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get("DB_URI")
+    app.config["SQLALCHEMY_DATABASE_URI"] = environ.get('DB_URI')
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SQLALCHEMY_ECHO"] = False
     app.secret_key = SECRET_KEY
