@@ -55,6 +55,13 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "Astro",
+            "email": "astro@gmail.com",
+            "password": "123456",
+            "username": "astroboy",
+            "purchases": {}
         }
     ]
 }

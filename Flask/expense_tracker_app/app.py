@@ -62,6 +62,8 @@ def signup():
                     f.seek(0)
                     json.dump(db,f,indent=4)
 
+                user["user_idx"] = db["users"].index(user)    
+
                 return {
                         "status": "success",
                         "msg": "User created successfully",
@@ -92,17 +94,20 @@ def login():
     if(request.method == 'POST'):
         email = request.form['email']
         password = request.form['password']
+        print(email)
+        print(password)
         err_msg = ""
         response = {}
 
         for user in db['users']: 
             if(user['email'] == email and user['password'] == password):
                 current_user = user
+                current_user["user_idx"] = db["users"].index(current_user)
                 response = {
                     "status": "success",
                     "msg": "User Logged In Successfuly",
                     "user": current_user,
-                    "user_idx": db['users'].index(current_user) 
+                    
                 }
                 return response
             elif(user['email'] != email and user['password'] == password):
@@ -233,5 +238,5 @@ def get_purchases_for_time_duration():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',port='3000',debug = True)
+    app.run(debug = True)
 
