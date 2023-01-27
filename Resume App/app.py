@@ -35,6 +35,13 @@ def create_app():
             - add certificate details
             - add skills details
         """
+
+        
+
+
+
+
+
         @app.route("/sign_up", methods=['POST'])
         def sign_up():
             data = request.form.to_dict(flat=True)
@@ -81,6 +88,19 @@ def create_app():
             user = User.query.filter_by(username=username).first()
 
             experience_details = request.get_json()
+            for experience in experience_details["data"]:
+                new_experience_details = Experiences(
+                    company_name = experience["company_name"],
+                    role = experience["role"],
+                    role_desc = experience["role_desc"],
+                    start_date = experience["start_date"],
+                    end_date = experience["end_date"],
+                    user_id = user.id
+                )
+                db.session.add(new_experience_details)
+                db.session.commit()
+
+            return "Successfully added experiences"    
 
         @app.route("/add_projects_details",methods=['POST'])
         def add_project_details():
@@ -88,6 +108,19 @@ def create_app():
             user = User.query.filter_by(username=username).first()
 
             project_details = request.get_json()
+
+            for project in project_details["data"]:
+                new_project_details = Projects(
+                    name = project["name"],
+                    desc = project["description"],
+                    start_date = project["start_date"],
+                    end_date = project["end_date"],
+                    user_id = user.id
+                )
+                db.session.add(new_project_details)
+                db.session.commit()
+
+            return "Projects added successfully"
 
 
         @app.route("/add_education_details",methods=['POST'])
@@ -109,7 +142,66 @@ def create_app():
             username = request.args.get('username')
             user = User.query.filter_by(username=username).first()
 
-            skill_details = request.get_json()    
+            skill_details = request.get_json()
+
+
+        @app.route("/get_resume",methods=["GET"])
+        def getResume():
+            username=request.args.get('username')
+            user = User.query.filter_by(username=username).first()
+            personalDetails = PersonalDetails.query.filter_by(user_id=user.id).first()
+            projects = Projects.query.filter_by(user_id=user.id).all()
+            experiences = Experiences.query.filter_by(user_id=user.id).all()
+
+
+            resume_data = {}
+
+            experiences_data = []
+            projects_data = []
+
+
+            resume_data={
+                "name": personalDetails.name,
+                "email": personalDetails.email,
+                "phone": personalDetails.phone,
+                "address": personalDetails.address,
+                "linkedin_link": personalDetails.linkedin_link
+
+            }
+
+            # add experience
+
+            for experience in experiences:
+                experiences_data.append({
+                    "company_name": experience.company_name,
+                    "role": experience.role,
+                    "role_desc": experience.role_desc,
+                    "start_date": experience.start_date,
+                    "end_date": experience.end_date
+                })
+
+            resume_data["experiences"] = experiences_data
+
+            # add projects
+
+            for project in projects:
+                projects_data.append({
+                    "name": project.name,
+                    "desc": project.desc,
+                    "start_date": project.start_date,
+                    "end_date": project.end_date
+                })
+
+            resume_data["projects"] = projects_data 
+
+
+            return {
+                "code":200,
+                "message": "Successfully fetched details of user",
+                "success": True,
+                "response": resume_data
+
+            }      
 
 
 
