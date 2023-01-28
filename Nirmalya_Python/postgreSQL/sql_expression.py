@@ -24,3 +24,21 @@ with db.connect() as conn:
                        year = '2050'
     )
     conn.execute(insert_statement)
+
+    # READ FROM TABLE
+    select_statement = flim_table.select()
+    select_result = conn.execute(select_statement)
+
+    for item in select_result:
+        print(item)
+
+    #UPDATE TABLE
+    update_statement = flim_table.update().where(
+        flim_table.c.year == '2050'
+    ).values(title = 'Amazing Spiderman')
+
+    conn.execute(update_statement)
+
+    #DELETE TABLE
+    delete_statement = flim_table.delete().where(flim_table.c.year == '2050')
+    conn.execute(delete_statement)
